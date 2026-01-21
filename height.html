@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feet & Inches to CM</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      width: 100%;
+      max-width: 360px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-top: 12px;
+      margin-bottom: 6px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      margin-top: 18px;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+    }
+    button:active {
+      transform: scale(0.98);
+    }
+    .result {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Feet & Inches → Centimetres</h1>
+
+    <label for="feet">Feet</label>
+    <input type="number" id="feet" placeholder="e.g. 6" inputmode="numeric" />
+
+    <label for="inches">Inches</label>
+    <input type="number" id="inches" placeholder="e.g. 0" inputmode="numeric" />
+
+    <button onclick="convert()">Convert</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function convert() {
+      const feet = parseFloat(document.getElementById('feet').value) || 0;
+      const inches = parseFloat(document.getElementById('inches').value) || 0;
+
+      const totalInches = (feet * 12) + inches;
+      const cm = totalInches * 2.54;
+
+      document.getElementById('result').textContent = cm.toFixed(1) + ' cm';
+    }
+  </script>
+</body>
+</html>
